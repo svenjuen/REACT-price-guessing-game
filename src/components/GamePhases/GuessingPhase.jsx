@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import ItemDisplay from '../ItemDisplay';
+import Timer from '../Timer';
 
 export default function GuessingPhase({ 
   item, 
@@ -24,7 +25,7 @@ export default function GuessingPhase({
   return (
     <div className="phase guessing-phase">
       <ItemDisplay item={item} />
-      <div className="timer">Time left: {timeRemaining}s</div>
+      <Timer timeRemaining={timeRemaining} totalTime={20} /> {/* Timer for guessing phase */}
       
       <div className="guess-input">
         <input

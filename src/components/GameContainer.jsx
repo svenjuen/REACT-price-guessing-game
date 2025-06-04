@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import WaitingPhase from './GamePhases/WaitingPhase';
-import ShowingPhase from './GamePhases/ShowingPhase';
 import GuessingPhase from './GamePhases/GuessingPhase';
 import ResultsPhase from './GamePhases/ResultsPhase';
 import PlayerList from './PlayerList';
@@ -24,13 +23,6 @@ export default function GameContainer({ gameState, playerId, sendMessage }) {
         <WaitingPhase 
           onStart={() => sendMessage('start')} 
           isHost={gameState.players[0]?.id === playerId}
-        />
-      )}
-
-      {gameState?.phase === 'showing' && (
-        <ShowingPhase 
-          item={gameState.currentItem} 
-          timeRemaining={gameState.timeRemaining}
         />
       )}
 
