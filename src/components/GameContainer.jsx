@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from 'react';
 import WaitingPhase from './GamePhases/WaitingPhase';
 import ShowingPhase from './GamePhases/ShowingPhase';

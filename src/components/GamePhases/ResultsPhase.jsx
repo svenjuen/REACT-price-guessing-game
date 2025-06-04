@@ -1,3 +1,4 @@
+import React from 'react';
 import ItemDisplay from '../ItemDisplay';
 
 export default function ResultsPhase({ item, players, timeRemaining }) {
@@ -19,6 +20,7 @@ export default function ResultsPhase({ item, players, timeRemaining }) {
             <span>{player.name}</span>
             <span>Guessed: ${player.currentGuess?.toFixed(2)}</span>
             <span>Difference: ${player.lastDiff?.toFixed(2)}</span>
+            <span>Points: {player.points}</span> 
           </div>
         ))}
       </div>
