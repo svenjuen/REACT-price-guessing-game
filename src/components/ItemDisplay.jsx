@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 export default function ItemDisplay({ item }) {
   const [loadedSrc, setLoadedSrc] = useState(null);
 
+  // Bild Laden
   useEffect(() => {
     if (item?.img && loadedSrc !== `/images/${item.img}`) {
       const img = new Image();
@@ -11,10 +12,11 @@ export default function ItemDisplay({ item }) {
     }
   }, [item]);
 
+
   return (
     <div className="item-display">
       <img 
-        src={loadedSrc || '/images/placeholder.jpg'}
+        src={loadedSrc || '/images/placeholder.jpg'} // Fallback-Bild fall das Bild nicht geladen wird
         style={{ 
           opacity: loadedSrc ? 1 : 0,
           transition: 'opacity 0.3s ease',

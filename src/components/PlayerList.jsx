@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Zeigt die Liste der Spieler an
 export default function PlayerList({ players, currentPlayerId }) {
   return (
     <div className="player-list">

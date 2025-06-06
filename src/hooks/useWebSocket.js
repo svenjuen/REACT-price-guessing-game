@@ -1,41 +1,28 @@
 import { useState, useEffect } from 'react';
 
 export default function useWebSocket(url) {
-  const [gameState, setGameState] = useState(null);
-  const [playerId, setPlayerId] = useState(null);
-  const [socket, setSocket] = useState(null);
-  const [connectionError, setConnectionError] = useState(false);
+  const [gameState, setGameState] = useState(null); // Aktueller Spielzustand
+  const [playerId, setPlayerId] = useState(null); // Eindeutige Spieler-ID
+  const [socket, setSocket] = useState(null); // WebSocket-Instanz
+  const [connectionError, setConnectionError] = useState(false); // Verbindungsstatus
 
   useEffect(() => {
     const ws = new WebSocket(url);
     setSocket(ws);
 
-    ws.onopen = () => {
-      console.log('WebSocket connected');
-      setConnectionError(false);
-    };
-
-    ws.onerror = () => {
-      setConnectionError(true);
-    };
-
-    ws.onclose = () => {
-      setConnectionError(true);
-    };
+    ws.onopen = () => setConnectionError(false); // Verbindung erfolgreich
+    ws.onerror = () => setConnectionError(true); // Fehler bei der Verbindung
+    ws.onclose = () => setConnectionError(true); // Verbindung geschlossen
 
     ws.onmessage = (event) => {
       try {
         const data = JSON.parse(event.data);
-        
         switch (data.type) {
           case 'welcome':
-            setPlayerId(data.playerId);
+            setPlayerId(data.playerId); // Spieler-ID setzen
             break;
           case 'update':
-            setGameState(data.gameState);
-            break;
-          case 'players':
-            // Handle players update if needed
+            setGameState(data.gameState); // Spielzustand aktualisieren
             break;
         }
       } catch (err) {
@@ -43,12 +30,12 @@ export default function useWebSocket(url) {
       }
     };
 
-    return () => ws.close();
+    return () => ws.close(); // Verbindung schließen bei Cleanup
   }, [url]);
 
   const sendMessage = (type, data = {}) => {
     if (socket?.readyState === WebSocket.OPEN) {
-      socket.send(JSON.stringify({ type, ...data }));
+      socket.send(JSON.stringify({ type, ...data })); // Nachricht senden
     }
   };
 

@@ -9,8 +9,9 @@ export default function GuessingPhase({
   onGuessChange, 
   onSubmitGuess 
 }) {
-  const [submittedGuess, setSubmittedGuess] = useState(null); // Track the last submitted guess
+  const [submittedGuess, setSubmittedGuess] = useState(null); // Speichert den letzten eingereichten Guess
 
+  // Handler für die Enter-Taste
   const handleKeyPress = (e) => {
     if (e.key === 'Enter') {
       handleSubmitGuess();
@@ -18,14 +19,14 @@ export default function GuessingPhase({
   };
 
   const handleSubmitGuess = () => {
-    onSubmitGuess(); // Send the guess to the server
-    setSubmittedGuess(currentGuess); // Update the submitted guess
+    onSubmitGuess(); // Senden des Guess auf
+    setSubmittedGuess(currentGuess); // Aktualisiere den letzten eingereichten Guess
   };
 
   return (
     <div className="phase guessing-phase">
       <ItemDisplay item={item} />
-      <Timer timeRemaining={timeRemaining} totalTime={20} /> {/* Timer for guessing phase */}
+      <Timer timeRemaining={timeRemaining} totalTime={20} /> {/* Timer */}
       
       <div className="guess-input">
         <input
@@ -37,12 +38,12 @@ export default function GuessingPhase({
           step="0.01"
           min="0"
         />
-        <button onClick={handleSubmitGuess}>Submit</button>
+        <button onClick={handleSubmitGuess}>Senden</button>
       </div>
 
       {submittedGuess !== null && (
         <div className="submitted-guess-display">
-          <p>Your submitted guess: €{submittedGuess}</p>
+          <p>Deine abgegebene Schätzung: €{submittedGuess}</p>
         </div>
       )}
     </div>

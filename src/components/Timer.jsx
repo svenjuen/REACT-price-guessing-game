@@ -1,5 +1,6 @@
 import React from 'react';
 
+// Zeigt einen Countdown-Timer mit Fortschrittsbalken an
 export default function Timer({ timeRemaining, totalTime }) {
   return (
     <div className="timer">
@@ -9,7 +10,7 @@ export default function Timer({ timeRemaining, totalTime }) {
           className="progress"
           style={{
             width: `${(timeRemaining / totalTime) * 100}%`,
-            transition: 'width 1s ease', // Smooth animation
+            transition: 'width 1s ease', // Smoother Übergang
           }}
         ></div>
       </div>

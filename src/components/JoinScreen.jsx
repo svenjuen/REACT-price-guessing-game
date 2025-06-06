@@ -1,13 +1,14 @@
 import React from 'react';
 import { useState } from 'react';
 
+// Formular zum eingeben des Namens und Beitreten des Spiels
 export default function JoinScreen({ onJoin }) {
   const [name, setName] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name.length >= 2) {
-      onJoin(name);
+    e.preventDefault(); // Verhindert das Neuladen der Seite
+    if (name.length >= 2) { // Überprüft, ob der Name mindestens 2 Zeichen lang ist
+      onJoin(name); 
     }
   };
 
