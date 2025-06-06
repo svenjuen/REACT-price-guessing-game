@@ -19,14 +19,14 @@ export default function GuessingPhase({
   };
 
   const handleSubmitGuess = () => {
-    onSubmitGuess(); // Senden des Guess auf
+    onSubmitGuess(); // 
     setSubmittedGuess(currentGuess); // Aktualisiere den letzten eingereichten Guess
   };
 
   return (
     <div className="phase guessing-phase">
       <ItemDisplay item={item} />
-      <Timer timeRemaining={timeRemaining} totalTime={20} /> {/* Timer */}
+      <Timer timeRemaining={timeRemaining} totalTime={20} />
       
       <div className="guess-input">
         <input

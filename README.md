@@ -68,3 +68,55 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+-------------------------------------------------------------
+
+# Guess the Price Game 🎮
+
+Ein Multiplayer-Spiel, bei dem die Spieler den Preis verschiedener Gegenstände erraten. Das Spiel besteht aus drei Phasen: WartePhase, Ratephase und Ergebnissphase. Dieses Projekt wurde mit **React** für das Frontend und einem **WebSocket-Server** für das Backend entwickelt.
+
+------------------------------
+
+## **Funktionen**
+- **Multiplayer-Unterstützung**: Spieler können dem Spiel beitreten, indem sie ihren Namen eingeben.
+- **Echtzeit-Updates**: Der Spielzustand wird über WebSocket synchronisiert.
+- **Drei Phasen**:
+  1. **Warten**: Spieler treten dem Spiel bei.
+  2. **Raten**: Spieler schätzen den Preis eines Artikels innerhalb eines Zeitlimits.
+  3. **Ergebnisse**: Der tatsächliche Preis wird angezeigt, und die Punkte werden basierend auf der Genauigkeit der Schätzungen berechnet.
+- **Dynamischer Timer**: Jede Phase hat einen Countdown-Timer, um das Spiel spannend zu halten.
+
+------------------------------
+
+## **Installation**
+
+### **Voraussetzungen**
+- Node.js 
+- npm
+- Ein WebSocket-Server (im Backend dieses Projekts enthalten: https://github.com/svenjuen/GuessThePriceWS)
+
+### **Schritte**
+- Konsole
+1. Repository klonen:
+   https://github.com/svenjuen/REACT-price-guessing-game
+2. cd price-guessing-game
+3. npm install
+4. npm start
+
+------------------------------
+
+src/
+├── components/
+│   ├── [GameContainer.jsx]       # Hauptcontainer für die Spielphasen
+│   ├── GamePhases/
+│   │   ├── WaitingPhase.jsx    # Warten auf Spieler
+│   │   ├── GuessingPhase.jsx   # Preis raten
+│   │   ├── ResultsPhase.jsx    # Ergebnisse anzeigen
+│   ├── PlayerList.jsx          # Spieleranzeige
+│   ├── JoinScreen.jsx          # Beitrittsbildschirm
+│   ├── ItemDisplay.jsx         # Artikelanzeige
+│   ├── Timer.jsx               # Countdown-Timer
+├── hooks/
+│   ├── useWebSocket.js         # WebSocket-Kommunikation
+├── App.js                      # Haupteinstiegspunkt der Anwendung
+├── App.css                     # Globale Styles
