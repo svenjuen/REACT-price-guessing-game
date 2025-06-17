@@ -71,7 +71,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 -------------------------------------------------------------
 
-# Guess the Price Game 🎮
+# Guess the Price Game 
 
 Ein Multiplayer-Spiel, bei dem die Spieler den Preis verschiedener Gegenstände erraten. Das Spiel besteht aus drei Phasen: WartePhase, Ratephase und Ergebnissphase. Dieses Projekt wurde mit **React** für das Frontend und einem **WebSocket-Server** für das Backend entwickelt.
 
