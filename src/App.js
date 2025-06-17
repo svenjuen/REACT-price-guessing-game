@@ -37,7 +37,7 @@ export default function App() {
         />
       ) : (
         <div>
-          <h2>Welcome! Waiting for game to start...</h2>
+          <h2>Wilkommen! WWarte auf Spielstart...</h2>
           <button onClick={() => sendMessage('start', {})}>Start Game</button>         
         </div>
       )}
